@@ -15,7 +15,6 @@ echo "HOST = $HOST"
 echo "ORG = $ORG"
 echo "APPNAME = $APPNAME"
 echo "TAG = $TAG"
-echo "DOCKER_USER = $DOCKER_USER"
 
 echo $PASSWORD | docker login $HOST --username $DOCKER_USER --password-stdin || exit 1
 time docker build -t $ORG/$APPNAME .
