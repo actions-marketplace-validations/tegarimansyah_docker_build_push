@@ -1,0 +1,17 @@
+name: 'Docker Build then Push'
+description: 'Build your dockerfile then push to anywhere'
+runs:
+  using: 'composite'
+  steps: 
+    - run: 'git --version && curl --version'
+      shell: bash
+    # Script below will get latest script, get the content then execute it
+    - run: >-
+          curl -sSL $(curl -sSL https://api.github.com/repos/tegarimansyah/docker_build_push/releases/latest \
+            | grep browser_download_url \
+            | cut -d '"' -f 4) | bash
+      shell: bash
+
+branding:
+  icon: 'git-commit'
+  color: 'green'
