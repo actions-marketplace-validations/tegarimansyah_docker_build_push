@@ -1,12 +1,12 @@
 #!/bin/bash
 
-if [ -z $DOCKER_USER ] || [ -z $PASSWORD ]; then
+if [ -z "$DOCKER_USER" ] || [ -z "$PASSWORD" ]; then
     echo "Please add DOCKER_USER and PASSWORD in env"
     exit 1
 fi
 
 TAG=$SEMVER
-if [ $DEV == true ]; then
+if [ "$DEV" == "true" ]; then
     HASH=$(echo $(git log -1 --pretty=%H) | awk '{print substr($0,1,8);exit}')
     TAG=$TAG-dev-$HASH
 fi
