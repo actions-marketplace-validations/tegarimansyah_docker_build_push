@@ -51,10 +51,11 @@ jobs:
 
 ## Notes for GCR
 
-* We can use [JSON Key file](https://cloud.google.com/container-registry/docs/advanced-authentication#json-key). Create one first.
-* Use `_json_key` as DOCKER_USER in Repo / Org secret
-* Put content of the JSON Key file to PASSWORD in Repo / Org secret
-* Use https://asia.gcr.io for HOST (or other region)
+* We can use [JSON Key file](https://cloud.google.com/container-registry/docs/advanced-authentication#json-key). Create one first with role `Storage Admin` (see [ref](https://cloud.google.com/container-registry/docs/access-control#permissions_and_roles)).
+* Use `_json_key` as `DOCKER_USER` in Repo / Org secret
+* Put content of the JSON Key file to `PASSWORD` in Repo / Org secret
+* Use GCP Project ID as `ORG`
+* Use `asia.gcr.io` for HOST (or other region nearest with you)
 
 ## Don't Use Latest Tag For Your Production
 
