@@ -20,7 +20,7 @@ echo $PASSWORD | docker login $HOST --username $DOCKER_USER --password-stdin || 
 time docker build -t $ORG/$APPNAME .
 docker tag $ORG/$APPNAME $HOST/$ORG/$APPNAME:$TAG
 
-if [ $DEV == false ]; then
+if [ "$DEV" == "false" ]; then
     # Because it's not development image, then put latest
     # but don't use latest in your production
     docker tag $ORG/$APPNAME $HOST/$ORG/$APPNAME:latest
